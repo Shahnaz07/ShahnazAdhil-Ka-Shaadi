@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f8e8df">
+  <title>Shahnaz & Adhil | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <!-- Opening Screen Overlay -->
+  <div class="opening" id="opening">
+    <div class="opening-inner">
+      <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <p class="tiny">TOGETHER WITH THEIR FAMILIES</p>
+      <div class="as-logo">A <span>&</span> S</div>
+      <p class="tiny">INVITE YOU TO CELEBRATE THEIR WEDDING</p>
+      <button id="enter" class="button">OPEN INVITATION</button>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="nav">
+    <a class="logo" href="#home">A <span>&</span> S</a>
+    <nav>
+      <a href="#details">Details</a>
+      <a href="#families">Families</a>
+      <a href="#wishes">Wishes</a>
+    </nav>
+  </header>
+
+  <main id="home">
+
+    <!-- Hero Image Slider Section -->
+    <section class="hero">
+      <div class="hero-image" id="heroImage"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-top">
+        <span>A & S</span>
+        <span>15 · 11 · 2026</span>
+      </div>
+
+      <div class="hero-center">
+        <p class="script-line">With love, joy & duas</p>
+        <h1>Shahnaz <em>&</em> Adhil</h1>
+        <p class="hero-sub">are getting married</p>
+      </div>
+
+      <div class="hero-bottom">
+        <span id="slideNumber">01 / 03</span>
+        <div class="slider-lines">
+          <i class="active"></i><i></i><i></i>
+        </div>
+        <span>Scroll ↓</span>
+      </div>
+
+      <button class="slider-arrow prev" id="prev" aria-label="Previous Slide">‹</button>
+      <button class="slider-arrow next" id="next" aria-label="Next Slide">›</button>
+    </section>
+
+    <!-- Quran Verse / Quote Section -->
+    <section class="quote-section">
+      <p class="eyebrow">A VERSE FOR OUR JOURNEY</p>
+      <blockquote>
+        “And He put between you affection and mercy.”
+        <small>— Quran [30:21]</small>
+      </blockquote>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+      <p class="eyebrow">COUNTING DOWN TO OUR DAY</p>
+      <h2>Until we say <em>I do</em></h2>
+      <div class="countdown" id="countdown">
+        <div><b id="cd-days">00</b><span>DAYS</span></div>
+        <div><b id="cd-hours">00</b><span>HOURS</span></div>
+        <div><b id="cd-minutes">00</b><span>MINUTES</span></div>
+        <div><b id="cd-seconds">00</b><span>SECONDS</span></div>
+      </div>
+    </section>
+
+    <!-- Event Details & Venue Section -->
+    <section id="details" class="section light">
+      <div class="heading">
+        <p class="eyebrow">THE WEDDING</p>
+        <h2>Save the<br><em>date</em></h2>
+      </div>
+
+      <div class="event-card">
+        <div class="event-icon">✦</div>
+        <p class="eyebrow">WEDDING CEREMONY</p>
+        <h3>Sunday, 15 November 2026</h3>
+        <p class="event-time">11:30 AM — 12:00 PM</p>
+        <div class="rule"></div>
+        <p class="eyebrow">VENUE</p>
+        <h3>Fr. Lopez Auditorium</h3>
+        <p class="location">Colachel</p>
+      </div>
+
+      <div class="actions">
+        <a class="button wide" href="https://maps.app.goo.gl/BQxys4PFpeqD1WFk7?g_st=ac" target="_blank" rel="noopener">📍 GET DIRECTIONS</a>
+        <button class="button outline wide" id="calendar">📅 ADD TO CALENDAR</button>
+      </div>
+    </section>
+
+    <!-- Family Details Section -->
+    <section id="families" class="section dark">
+      <div class="heading">
+        <p class="eyebrow">WITH THE BLESSINGS OF OUR FAMILIES</p>
+        <h2>Two families,<br><em>one beautiful beginning</em></h2>
+      </div>
+
+      <div class="families">
+        <article>
+          <p class="eyebrow">BRIDE</p>
+          <h3>Shahnaz</h3>
+          <p>Daughter of</p>
+          <strong>Mr. Maheen Abubacker M.<br>& Mrs. Suhatha Beevi S.</strong>
+        </article>
+
+        <div class="family-mark">A <span>♡</span> S</div>
+
+        <article>
+          <p class="eyebrow">GROOM</p>
+          <h3>Adhil</h3>
+          <p>Son of</p>
+          <strong>Mr. Sudeer Kadar M.K.<br>& Mrs. Sakeena Beevi</strong>
+        </article>
+      </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
+      <div class="heading">
+        <p class="eyebrow">OUR LITTLE STORY</p>
+        <h2>Moments made<br><em>for forever</em></h2>
+      </div>
+      <div class="gallery">
+        <img src="bg1.jpg" alt="Shahnaz and Adhil">
+        <img src="bg2.jpg" alt="Shahnaz and Adhil">
+        <img src="bg3.jpg" alt="Shahnaz and Adhil">
+      </div>
+    </section>
+
+    <!-- Note Section -->
+    <section class="dress-section">
+      <div class="dress-card">
+        <p class="eyebrow">A LITTLE NOTE</p>
+        <h2>Come as you are,<br><em>celebrate with us</em></h2>
+        <p>We can't wait to share this beautiful day with the people we love.</p>
+      </div>
+    </section>
+
+    <!-- Guest Wishes Section -->
+    <section id="wishes" class="section light">
+      <div class="heading">
+        <p class="eyebrow">YOUR DUAS MEAN THE WORLD</p>
+        <h2>Leave us a<br><em>little blessing</em></h2>
+      </div>
+
+      <form id="wishForm" class="wish-form">
+        <input id="wishName" type="text" maxlength="50" required placeholder="Your name">
+        <textarea id="wishText" maxlength="300" required placeholder="Write your wishes for Shahnaz & Adhil..."></textarea>
+        <button class="button wide" type="submit">SEND YOUR WISH</button>
+      </form>
+
+      <p class="eyebrow wish-count" id="wishCount">0 BLESSINGS RECEIVED</p>
+      <div class="wish-list" id="wishList"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-logo">A <span>&</span> S</div>
+      <p>Shahnaz & Adhil</p>
+      <h2>15 · 11 · 2026</h2>
+      <small>With love, prayers & gratitude</small>
+    </footer>
+  </main>
+
+  <!-- Audio Controls -->
+  <button id="music" class="music" aria-label="Toggle Audio">♫</button>
+  <audio id="audio" loop src="nikkah.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
