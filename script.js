@@ -429,167 +429,131 @@ async function loadWishes() {
 
 if (form) {
 
-  form.addEventListener(
-    "submit",
-    async (e) => {
+  form.addEventListener("submit", e => {
 
-      e.preventDefault();
+    e.preventDefault();
 
+    const nameInput =
+      document.getElementById("wishName");
 
-      const nameInput =
-        document.getElementById("wishName");
+    const messageInput =
+      document.getElementById("wishText");
 
-      const messageInput =
-        document.getElementById("wishText");
+    const name =
+      nameInput ? nameInput.value.trim() : "";
 
+    const message =
+      messageInput ? messageInput.value.trim() : "";
 
-      const name =
-        nameInput
-          ? nameInput.value.trim()
-          : "";
+    if (!name || !message) {
 
+      alert(
+        "Please enter your name and blessing."
+      );
 
-      const message =
-        messageInput
-          ? messageInput.value.trim()
-          : "";
+      return;
+    }
 
+    const submitButton =
+      form.querySelector(
+        'button[type="submit"]'
+      );
 
-      if (!name || !message) {
+    if (submitButton) {
 
-        alert(
-          "Please enter your name and blessing."
-        );
+      submitButton.disabled = true;
 
-        return;
-
-      }
-
-
-      // Prevent multiple submissions
-
-      const submitButton =
-        form.querySelector(
-          'button[type="submit"]'
-        );
-
-
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent =
-          "SENDING...";
-      }
-
-
-      try {
-
-        /*
-          IMPORTANT:
-          We send the data as URL-encoded form data.
-
-          This matches your Apps Script:
-
-          e.parameter.name
-          e.parameter.message
-
-          It also avoids unnecessary CORS
-          preflight problems.
-        */
-
-        const body =
-          new URLSearchParams();
-
-        body.append(
-          "name",
-          name
-        );
-
-        body.append(
-          "message",
-          message
-        );
-
-
-        const response =
-          await fetch(API_URL, {
-
-            method: "POST",
-
-            body: body
-
-          });
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Unable to save blessing."
-          );
-
-        }
-
-
-        const result =
-          await response.json();
-
-
-        if (!result.success) {
-
-          throw new Error(
-            result.error ||
-            result.message ||
-            "Unable to save blessing."
-          );
-
-        }
-
-
-        // Clear the form
-
-        form.reset();
-
-
-        // Show latest wishes again
-
-        await loadWishes();
-
-
-        alert(
-          "Your blessing has been added ❤️"
-        );
-
-
-      } catch (error) {
-
-        console.error(
-          "Error submitting wish:",
-          error
-        );
-
-
-        alert(
-          "Something went wrong while sending your blessing. Please try again."
-        );
-
-
-      } finally {
-
-        if (submitButton) {
-
-          submitButton.disabled = false;
-
-          submitButton.textContent =
-            "SEND WISH";
-
-        }
-
-      }
+      submitButton.textContent =
+        "SENDING...";
 
     }
-  );
+
+    const iframe =
+      document.createElement("iframe");
+
+    iframe.name =
+      "wishSubmitFrame";
+
+    iframe.style.display =
+      "none";
+
+    document.body.appendChild(iframe);
+
+    const sendForm =
+      document.createElement("form");
+
+    sendForm.method =
+      "POST";
+
+    sendForm.action =
+      API_URL;
+
+    sendForm.target =
+      "wishSubmitFrame";
+
+    sendForm.style.display =
+      "none";
+
+    const nameField =
+      document.createElement("input");
+
+    nameField.type =
+      "hidden";
+
+    nameField.name =
+      "name";
+
+    nameField.value =
+      name;
+
+    const messageField =
+      document.createElement("input");
+
+    messageField.type =
+      "hidden";
+
+    messageField.name =
+      "message";
+
+    messageField.value =
+      message;
+
+    sendForm.appendChild(nameField);
+
+    sendForm.appendChild(messageField);
+
+    document.body.appendChild(sendForm);
+
+    sendForm.submit();
+
+    setTimeout(async () => {
+
+      form.reset();
+
+      if (submitButton) {
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "SEND WISH";
+
+      }
+
+      sendForm.remove();
+
+      iframe.remove();
+
+      await loadWishes();
+
+      alert(
+        "Your blessing has been sent successfully! ❤️"
+      );
+
+    }, 2500);
+
+  });
 
 }
-
 
 // ======================================================
 // INITIAL LOAD
